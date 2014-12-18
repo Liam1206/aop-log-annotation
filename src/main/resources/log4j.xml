@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	threshold="null" debug="null">
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[log-aop]%d %-5p [%c] %m%n" />
+        </layout>
+    </appender>
+
+	<appender name="avatarAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/data/applogs/log-aop/logs/avatar.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[log-aop]%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="appAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/data/applogs/log-aop/logs/app.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[log-aop]%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="illegalAccessAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/data/applogs/log-aop/logs/illegalAccess.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[log-aop]%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="illegalParameterAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/data/applogs/log-aop/logs/illegalParameter.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[log-aop]%d %-5p [%c %L] %m%n" />
+		</layout>
+	</appender>
+	
+	<logger name="org.springframework.jms">
+		<level value="ERROR" />
+	</logger>
+	
+	<logger name="org.apache.activemq">
+		<level value="ERROR" />
+	</logger>
+	
+	
+	<logger name="com.opensymphony.xwork2.ognl.OgnlValueStack" additivity="false">
+		<level value="ERROR" />
+		<appender-ref ref="illegalParameterAppender" />
+	</logger>
+	
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="appAppender" />
+	</root>
+
+</log4j:configuration>
