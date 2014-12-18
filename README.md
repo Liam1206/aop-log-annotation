@@ -11,7 +11,9 @@ public returntype methodName(params)
 
 测试输出
 [log-aop]2014-12-18 14:31:43,506 INFO  [com.liam.aop.service.impl.TestServiceImpl] start invoke [test], params = ["abc""123"]
+
 do something...................
+
 [log-aop]2014-12-18 14:31:43,507 INFO  [com.liam.aop.service.impl.TestServiceImpl] complete invoke [test]
 
 
