@@ -10,6 +10,6 @@ public class AopLogAnnotationTest {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");  
         TestService testService = (TestService)ctx.getBean("testService");  
-        testService.test("abc","123");
+        testService.test("abc","1234");
 	}
 }
